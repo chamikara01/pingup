@@ -4,3 +4,11 @@
 *{
   font-family: "Outfit", sans-serif;
 }
+
+.no-scrollbar{
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar{
+  display: none;
+}
