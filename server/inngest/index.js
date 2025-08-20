@@ -56,5 +56,8 @@ const syncUserDeletion = inngest.createFunction(
     }
 )
 
+//Inngest Function to send Reminder when a new connection request is added
+
+
 // Create an empty array where we'll export future Inngest functions
 export const functions = [syncUserCreation, syncUserUpdation, syncUserDeletion];
