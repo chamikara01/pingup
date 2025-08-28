@@ -8,6 +8,7 @@ import { clerkMiddleware } from '@clerk/express'
 import userRouter from './routes/userRoutes.js'
 import postRouter from './routes/postRoutes.js'
 import messageRouter from './routes/messageRoutes.js'
+import storyRouter from './routes/storyRoutes.js'
 
 const app = express()
 
