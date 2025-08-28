@@ -1,4 +1,5 @@
 import imagekit from "../configs/imageKit.js";
+import { inngest } from "../inngest/index.js";
 import Connection from "../models/Connection.js";
 import User from "../models/User.js";
 import fs from "fs"
@@ -183,9 +184,14 @@ export const unfollowUser = async(req, res)=>{
         })
 
         if(!connection){
-            await Connection.create({
+            const newConnection = await Connection.create({
                 from_user_id: userId,
                 to_user_id: id
+            })
+
+            await inngest.send({
+                name: 'app/connection-request',
+                data: {connectionId: newConnection._id}
             })
             return res.json({success: true, message: 'Connection request sent successfully'})
         }else if(connection && connection.status === 'accepted'){
